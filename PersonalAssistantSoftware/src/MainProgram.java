@@ -1,5 +1,4 @@
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 
 public class MainProgram {
 	Scanner scan = new Scanner(System.in);
@@ -9,8 +8,12 @@ public class MainProgram {
 		System.out.println("2. Calculator");
 		System.out.println("3. Account Book");
 		System.out.println("4. Quit");
+		System.out.print("> ");
 		
 		int menu = scan.nextInt();
+		scan.nextLine();
+		System.out.println();
+
 		return menu;
 	}
 
@@ -28,26 +31,29 @@ public class MainProgram {
 				MemoManager memoManager = new MemoManager();
 				int memoMenu;
 				do{
-					memoManager.selectMemoMenu();					
+					memoMenu = memoManager.selectMemoMenu();					
 					switch(memoMenu) {
 					case 1:
-						System.out.println("새로운 메모 내용을 입력하세요: ");
+						System.out.print("새로운 메모 내용을 입력하세요: ");
 						String newMemo = scan.nextLine(); //한 줄만 받을수있음
 						memoManager.create(newMemo);
 						break;
 					case 2:
-						System.out.println("수정할 메모의 번호를 입력하세요: ");
+						System.out.print("수정할 메모의 번호를 입력하세요: ");
 						int memoNumberToUpdate = scan.nextInt();
-						System.out.println("수정할 메모의 내용을 입력하세요:");
+						scan.nextLine();
+						System.out.print("수정할 메모의 내용을 입력하세요: ");
 						String updateMemo = scan.nextLine(); //한 줄만 받을수있음
 						memoManager.update(memoNumberToUpdate, updateMemo);				
 						break;
 					case 3:
-						System.out.println("삭제할 메모의 번호를 입력하세요: ");
+						System.out.print("삭제할 메모의 번호를 입력하세요: ");
 						int memoNumberToDelete = scan.nextInt();
+						scan.nextLine();
 						memoManager.delete(memoNumberToDelete);
 						break;
 					case 4:
+						System.out.println();
 						memoManager.printMemoList();
 						break;
 					}					
@@ -113,7 +119,9 @@ public class MainProgram {
 							if (direction == 1) {
 								System.out.print("길이(Inch)를 입력하세요: ");
 								length = scan.nextDouble();
-								calculator.convertInchToCm(length);
+								////////////////////////////////////
+							//	((Object) calculator).convertInchToCm(length);
+							    ///////////////////////////////////
 							}
 							if (direction == 2) {
 								System.out.print("길이(cm)를 입력하세요: ");
