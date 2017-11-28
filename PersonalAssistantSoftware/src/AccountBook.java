@@ -29,15 +29,15 @@ public class AccountBook {
 }
 
 class PurchaseInfo {
-	Date purchaseDate;
+	String purchaseDate;
 	String item;
 	int price;
 	
-	public PurchaseInfo(Date purchaseDate, String item, int price) {
+	public PurchaseInfo(String purchaseDate, String item, int price) {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public PurchaseInfo(int number, Date purchaseDate, String item, int price) {
+	public PurchaseInfo(int number, String purchaseDate, String item, int price) {
 		
 	}
 	

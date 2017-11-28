@@ -150,48 +150,35 @@ public class MainProgram {
 				
 			case 3: //가계부
 				AccountBook accountBook = new AccountBook();
-				int year, month, date;
-				String item;
+				String item, date;
 				int price;
 				int accountBookMenu;
 				int purchaseNumberToUpdate, purchaseNumberToDelete;
 				
 				do{
 					accountBookMenu = accountBook.selectAccountBookMenu();
-					Date purchaseDate = new Date();
 					switch(accountBookMenu) {
 					case 1:
 						System.out.println("새로운 구매 내역을 입력하세요.");
 						System.out.print("구매 날짜(ex. 2017 11 22): ");
-						year = scan.nextInt(); 
-						month = scan.nextInt();
-						date = scan.nextInt();						
-						purchaseDate.setYear(year);
-						purchaseDate.setMonth(month);
-						purchaseDate.setDate(date);
+						date = scan.nextLine();
 						System.out.print("구매 제품: ");
 						item = scan.nextLine();
 						System.out.print("가격: ");
 						price = scan.nextInt();
-						PurchaseInfo purchaseInfo = new PurchaseInfo(purchaseDate, item, price);
+						PurchaseInfo purchaseInfo = new PurchaseInfo(date, item, price);
 						accountBook.create(purchaseInfo);
 						break;
 					case 2:												
-						System.out.println("수정할 구매 내역을 입력하세요.");
-						System.out.print("구매 내역 번호: ");
+						System.out.println("수정할 구매 내역의 번호를 입력하세요.");
 						purchaseNumberToUpdate = scan.nextInt();
 						System.out.print("구매 날짜(ex. 2017 11 22): ");
-						year = scan.nextInt(); //날짜 어케 받을 거 ????
-						month = scan.nextInt();
-						date = scan.nextInt();
-						purchaseDate.setYear(year);
-						purchaseDate.setMonth(month);
-						purchaseDate.setDate(date);
+						date = scan.nextLine();
 						System.out.print("구매 제품: ");
 						item = scan.nextLine();
 						System.out.print("가격: ");
 						price = scan.nextInt();
-						PurchaseInfo newPurchaseInfo = new PurchaseInfo(purchaseNumberToUpdate, purchaseDate, item, price);
+						PurchaseInfo newPurchaseInfo = new PurchaseInfo(purchaseNumberToUpdate, date, item, price);
 						accountBook.update(purchaseNumberToUpdate, newPurchaseInfo);						
 						break;
 					case 3:
