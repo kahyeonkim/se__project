@@ -1,10 +1,5 @@
 import java.util.*;
 
-/////////////////
-// ±âº»¸Þ´º·Î µ¹¾Æ°¬´Ù°¡ ´Ù½Ã ¸Þ¸ð±â´É¿À¸é ±×Àü³»¿ë ÀúÀåµÇÀÖ¾î¾ßÇÏ³ª?
-// ±×·¯·Á¸é º¯¼ö¸¦ main¿¡ ÀúÀåÇØ¾ßµÊ
-////////////////
-
 public class MemoManager {
 	ArrayList<String> memoList = new ArrayList();
 	int memoCount = 0;
@@ -33,13 +28,13 @@ public class MemoManager {
 	public void create(String memo) {
 		memoList.add(memo);
 		memoCount++;
-		printMemo(memoCount, "»ý¼º");
+		printMemo(memoCount, "ï¿½ï¿½ï¿½ï¿½");
 	}
 	
 	public void update(int memoNumber, String newMemo) {
 		memoList.remove(memoNumber);
 		memoList.add(memoNumber, newMemo);
-		printMemo(memoNumber, "¼öÁ¤");
+		printMemo(memoNumber, "ï¿½ï¿½ï¿½ï¿½");
 	}
 	
 	public void delete(int memoNumber) {
@@ -47,13 +42,12 @@ public class MemoManager {
 		
 		memoList.remove(memo);
 		memoCount--;
-		printMemo(memoCount, "»èÁ¦");
+		printMemo(memoCount, "ï¿½ï¿½ï¿½ï¿½");
 
 	}
-	///// ¾ø´Â¹øÈ£ ÀÔ·Â½Ã ¿¹¿ÜÃ³¸®??
 	
 	private void printMemo(int memoNumber, String function) {
-		String contents = memoNumber + "¹øÂ° ¸Þ¸ð°¡ " + function + "µÇ¾ú½À´Ï´Ù."; 
+		String contents = memoNumber + "ï¿½ï¿½Â° ï¿½Þ¸ï¿½ " + function + "ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."; 
 		System.out.println(contents);
 		System.out.println();
 	}
@@ -61,7 +55,7 @@ public class MemoManager {
 	public void printMemoList() {
 		for(int i = 1; i < memoList.size(); i++) {
 			String memo = memoList.get(i);
-			System.out.println(i + "¹øÂ° ¸Þ¸ð: " + memo);
+			System.out.println(i + "ï¿½ï¿½Â° ï¿½Þ¸ï¿½: " + memo);
 		}
 		System.out.println();
 	}
