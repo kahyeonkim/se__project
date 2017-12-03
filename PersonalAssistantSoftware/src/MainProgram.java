@@ -27,33 +27,34 @@ public class MainProgram {
 			menu = main.selectMenu();
 
 			switch (menu) {
-			case 1: // 硫붾え湲곕뒫
+			case 1: // Memo Manager
+				
+				
 				MemoManager memoManager = new MemoManager();
 				int memoMenu;
 				do {
 					memoMenu = memoManager.selectMemoMenu();
 					switch (memoMenu) {
 					case 1:
-						System.out.print("�깉濡쒖슫 硫붾え �궡�슜�쓣 �엯�젰�븯�꽭�슂: ");
-						String newMemo = scan.nextLine(); // �븳 以꾨쭔 諛쏆쓣�닔�엳�쓬
+						System.out.print("Write a new memo to create: ");
+						String newMemo = scan.nextLine(); // (press <enter> to create)
 						memoManager.create(newMemo);
 						break;
 					case 2:
-						System.out.print("�닔�젙�븷 硫붾え�쓽 踰덊샇瑜� �엯�젰�븯�꽭�슂: ");
+						System.out.print("Enter the number of the memo to update: ");
 						int memoNumberToUpdate = scan.nextInt();
 						scan.nextLine();
-						System.out.print("�닔�젙�븷 硫붾え�쓽 �궡�슜�쓣 �엯�젰�븯�꽭�슂: ");
-						String updateMemo = scan.nextLine(); // �븳 以꾨쭔 諛쏆쓣�닔�엳�쓬
+						System.out.print("Write a new memo to update: ");
+						String updateMemo = scan.nextLine();
 						memoManager.update(memoNumberToUpdate, updateMemo);
 						break;
 					case 3:
-						System.out.print("�궘�젣�븷 硫붾え�쓽 踰덊샇瑜� �엯�젰�븯�꽭�슂: ");
+						System.out.print("Enter the number of the memo to delete: ");
 						int memoNumberToDelete = scan.nextInt();
 						scan.nextLine();
 						memoManager.delete(memoNumberToDelete);
 						break;
 					case 4:
-						System.out.println();
 						memoManager.printMemoList();
 						break;
 					}
