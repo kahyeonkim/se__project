@@ -27,20 +27,14 @@ public class MainProgram {
 			menu = main.selectMenu();
 
 			switch (menu) {
-<<<<<<< HEAD
 			case 1: // Memo Manager
 				
-				
-=======
-			case 1: // 硫붾え湲곕뒫
->>>>>>> 2ce44035ebcb01d0d781a5c5e73aa05658e080c0
 				MemoManager memoManager = new MemoManager();
 				int memoMenu;
 				do {
 					memoMenu = memoManager.selectMemoMenu();
 					switch (memoMenu) {
 					case 1:
-<<<<<<< HEAD
 						System.out.print("Write a new memo to create: ");
 						String newMemo = scan.nextLine(); // (press <enter> to create)
 						memoManager.create(newMemo);
@@ -55,22 +49,6 @@ public class MainProgram {
 						break;
 					case 3:
 						System.out.print("Enter the number of the memo to delete: ");
-=======
-						System.out.print("�깉濡쒖슫 硫붾え �궡�슜�쓣 �엯�젰�븯�꽭�슂: ");
-						String newMemo = scan.nextLine(); // �븳 以꾨쭔 諛쏆쓣�닔�엳�쓬
-						memoManager.create(newMemo);
-						break;
-					case 2:
-						System.out.print("�닔�젙�븷 硫붾え�쓽 踰덊샇瑜� �엯�젰�븯�꽭�슂: ");
-						int memoNumberToUpdate = scan.nextInt();
-						scan.nextLine();
-						System.out.print("�닔�젙�븷 硫붾え�쓽 �궡�슜�쓣 �엯�젰�븯�꽭�슂: ");
-						String updateMemo = scan.nextLine(); // �븳 以꾨쭔 諛쏆쓣�닔�엳�쓬
-						memoManager.update(memoNumberToUpdate, updateMemo);
-						break;
-					case 3:
-						System.out.print("�궘�젣�븷 硫붾え�쓽 踰덊샇瑜� �엯�젰�븯�꽭�슂: ");
->>>>>>> 2ce44035ebcb01d0d781a5c5e73aa05658e080c0
 						int memoNumberToDelete = scan.nextInt();
 						scan.nextLine();
 						memoManager.delete(memoNumberToDelete);

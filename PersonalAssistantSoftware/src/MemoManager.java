@@ -28,21 +28,13 @@ public class MemoManager {
 	public void create(String memo) {
 		memoList.add(memo);
 		memoCount++;
-<<<<<<< HEAD
 		printMemo(memoCount, "create");
-=======
-		printMemo(memoCount, "����");
->>>>>>> 2ce44035ebcb01d0d781a5c5e73aa05658e080c0
 	}
 	
 	public void update(int memoNumber, String newMemo) {
 		memoList.remove(memoNumber);
 		memoList.add(memoNumber, newMemo);
-<<<<<<< HEAD
 		printMemo(memoNumber, "update");
-=======
-		printMemo(memoNumber, "����");
->>>>>>> 2ce44035ebcb01d0d781a5c5e73aa05658e080c0
 	}
 	
 	public void delete(int memoNumber) {
@@ -50,20 +42,11 @@ public class MemoManager {
 		
 		memoList.remove(memo);
 		memoCount--;
-<<<<<<< HEAD
 		printMemo(memoCount, "delete");
-=======
-		printMemo(memoCount, "����");
->>>>>>> 2ce44035ebcb01d0d781a5c5e73aa05658e080c0
-
-	}
+		}
 	
 	private void printMemo(int memoNumber, String function) {
-<<<<<<< HEAD
 		String contents = "Memo Number " + memoNumber + ": " + "The memo has been " + function +"d."; 
-=======
-		String contents = memoNumber + "��° �޸� " + function + "�Ǿ����ϴ�."; 
->>>>>>> 2ce44035ebcb01d0d781a5c5e73aa05658e080c0
 		System.out.println(contents);
 		System.out.println();
 	}
@@ -71,12 +54,8 @@ public class MemoManager {
 	public void printMemoList() {
 		for(int i = 1; i < memoList.size(); i++) {
 			String memo = memoList.get(i);
-<<<<<<< HEAD
 			System.out.println("Memo Number " + i + ": " + memo);
-=======
-			System.out.println(i + "��° �޸�: " + memo);
->>>>>>> 2ce44035ebcb01d0d781a5c5e73aa05658e080c0
-		}
+	}
 		System.out.println();
 	}
 }
