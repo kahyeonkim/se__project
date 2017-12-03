@@ -2,14 +2,14 @@ import java.util.*;
 
 public class MainProgram {
 	Scanner scan = new Scanner(System.in);
-	
-	public int selectMenu() {		
+
+	public int selectMenu() {
 		System.out.println("1. Memo Manager");
 		System.out.println("2. Calculator");
 		System.out.println("3. Account Book");
 		System.out.println("4. Quit");
 		System.out.print("> ");
-		
+
 		int menu = scan.nextInt();
 		scan.nextLine();
 		System.out.println();
@@ -22,32 +22,32 @@ public class MainProgram {
 		MainProgram main = new MainProgram();
 		Scanner scan = new Scanner(System.in);
 		int menu;
-		
+
 		do {
 			menu = main.selectMenu();
-			
-			switch(menu) {
-			case 1: // ¸Ş¸ğ±â´É 
+
+			switch (menu) {
+			case 1: // ï§ë¶¾ãˆæ¹²ê³•ë’«
 				MemoManager memoManager = new MemoManager();
 				int memoMenu;
-				do{
-					memoMenu = memoManager.selectMemoMenu();					
-					switch(memoMenu) {
+				do {
+					memoMenu = memoManager.selectMemoMenu();
+					switch (memoMenu) {
 					case 1:
-						System.out.print("»õ·Î¿î ¸Ş¸ğ ³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
-						String newMemo = scan.nextLine(); //ÇÑ ÁÙ¸¸ ¹ŞÀ»¼öÀÖÀ½
+						System.out.print("ï¿½ê¹‰æ¿¡ì’–ìŠ« ï§ë¶¾ãˆ ï¿½ê¶¡ï¿½ìŠœï¿½ì“£ ï¿½ì—¯ï¿½ì °ï¿½ë¸¯ï¿½ê½­ï¿½ìŠ‚: ");
+						String newMemo = scan.nextLine(); // ï¿½ë¸³ ä»¥ê¾¨ì­” è«›ì†ì“£ï¿½ë‹”ï¿½ì—³ï¿½ì“¬
 						memoManager.create(newMemo);
 						break;
 					case 2:
-						System.out.print("¼öÁ¤ÇÒ ¸Ş¸ğÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+						System.out.print("ï¿½ë‹”ï¿½ì ™ï¿½ë¸· ï§ë¶¾ãˆï¿½ì“½ è¸°ëŠìƒ‡ç‘œï¿½ ï¿½ì—¯ï¿½ì °ï¿½ë¸¯ï¿½ê½­ï¿½ìŠ‚: ");
 						int memoNumberToUpdate = scan.nextInt();
 						scan.nextLine();
-						System.out.print("¼öÁ¤ÇÒ ¸Ş¸ğÀÇ ³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
-						String updateMemo = scan.nextLine(); //ÇÑ ÁÙ¸¸ ¹ŞÀ»¼öÀÖÀ½
-						memoManager.update(memoNumberToUpdate, updateMemo);				
+						System.out.print("ï¿½ë‹”ï¿½ì ™ï¿½ë¸· ï§ë¶¾ãˆï¿½ì“½ ï¿½ê¶¡ï¿½ìŠœï¿½ì“£ ï¿½ì—¯ï¿½ì °ï¿½ë¸¯ï¿½ê½­ï¿½ìŠ‚: ");
+						String updateMemo = scan.nextLine(); // ï¿½ë¸³ ä»¥ê¾¨ì­” è«›ì†ì“£ï¿½ë‹”ï¿½ì—³ï¿½ì“¬
+						memoManager.update(memoNumberToUpdate, updateMemo);
 						break;
 					case 3:
-						System.out.print("»èÁ¦ÇÒ ¸Ş¸ğÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+						System.out.print("ï¿½ê¶˜ï¿½ì £ï¿½ë¸· ï§ë¶¾ãˆï¿½ì“½ è¸°ëŠìƒ‡ç‘œï¿½ ï¿½ì—¯ï¿½ì °ï¿½ë¸¯ï¿½ê½­ï¿½ìŠ‚: ");
 						int memoNumberToDelete = scan.nextInt();
 						scan.nextLine();
 						memoManager.delete(memoNumberToDelete);
@@ -56,143 +56,75 @@ public class MainProgram {
 						System.out.println();
 						memoManager.printMemoList();
 						break;
-					}					
-				} while(memoMenu != 5);				
+					}
+				} while (memoMenu != 5);
 				break;
-				
-			case 2: //°è»ê±â ±â´É
+
+			case 2:
 				Calculator calculator = new Calculator();
 				int calculatorMenu;
-				do{
+				do {
 					calculatorMenu = calculator.selectCalculatorMenu();
-					switch(calculatorMenu) {
-					case 1: //»çÄ¢ ¿¬»ê
-						double num1, num2;
-						int arithmeticOperationMenu = calculator.selectArithmeticOperationMenu();
-						switch(arithmeticOperationMenu) {
-						case 1:
-							System.out.print("µ¡¼ÀÀ» ¼öÇàÇÒ µÎ ½Ç¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
-							num1 = scan.nextDouble();
-							num2 = scan.nextDouble();
-							calculator.add(num1, num2);
-							break;
-						case 2:
-							System.out.print("»¬¼ÀÀ» ¼öÇàÇÒ µÎ ½Ç¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
-							num1 = scan.nextDouble();
-							num2 = scan.nextDouble();
-							calculator.subtract(num1, num2);
-							break;
-						case 3:
-							System.out.print("°ö¼ÀÀ» ¼öÇàÇÒ µÎ ½Ç¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
-							num1 = scan.nextDouble();
-							num2 = scan.nextDouble();
-							calculator.multiply(num1, num2);
-							break;
-						case 4:
-							System.out.print("³ª´°¼ÀÀ» ¼öÇàÇÒ µÎ ½Ç¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
-							num1 = scan.nextDouble();
-							num2 = scan.nextDouble();
-							calculator.divide(num1, num2);
-							break;
-						}
-						break;
-					case 2: //´ÜÀ§ º¯È¯
-						double weight, length, temperature;
-						int direction;
-						int convertorMenu = calculator.selectConvertMenu();
-						switch(convertorMenu) {
-						case 1:
-							direction = calculator.selectDirectionOfWeightConvertor();
-							if (direction == 1) {
-								System.out.print("¹«°Ô(kg)¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
-								weight = scan.nextDouble();
-								calculator.convertKgToPound(weight);
-							}
-							if (direction == 2) {
-								System.out.print("¹«°Ô(pound)¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
-								weight = scan.nextDouble();
-								calculator.convertPoundToKg(weight);
-							}
-							break;
-						case 2:
-							direction = calculator.selectDirectionOfLengthConvertor();
-							if (direction == 1) {
-								System.out.print("±æÀÌ(Inch)¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
-								length = scan.nextDouble();
-								////////////////////////////////////
-							//	((Object) calculator).convertInchToCm(length);
-							    ///////////////////////////////////
-							}
-							if (direction == 2) {
-								System.out.print("±æÀÌ(cm)¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
-								length = scan.nextDouble();
-								calculator.convertCmToInch(length);
-							}
-							break;
-						case 3:
-							direction = calculator.selectDirectionOfTemperatureConvertor();
-							if (direction == 1) {
-								System.out.print("¿Âµµ(F)¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
-								temperature = scan.nextDouble();
-								calculator.convertFahrenheitToCelsius(temperature);
-							}
-							if (direction == 2) {
-								System.out.print("¿Âµµ(C)¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
-								temperature = scan.nextDouble();
-								calculator.convertCelsiusToFahrenheit(temperature);
-							}
-							break;
-						}
-						break;
-					}					
-				} while(calculatorMenu != 3);
-				break;
-				
-			case 3: //°¡°èºÎ
-				AccountBook accountBook = new AccountBook();
-				String item, date;
-				int price;
-				int accountBookMenu;
-				int purchaseNumberToUpdate, purchaseNumberToDelete;
-				
-				do{
-					accountBookMenu = accountBook.selectAccountBookMenu();
-					switch(accountBookMenu) {
+					switch (calculatorMenu) {
 					case 1:
-						System.out.println("»õ·Î¿î ±¸¸Å ³»¿ªÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
-						System.out.print("±¸¸Å ³¯Â¥(ex. 2017 11 22): ");
-						date = scan.nextLine();
-						System.out.print("±¸¸Å Á¦Ç°: ");
-						item = scan.nextLine();
-						System.out.print("°¡°İ: ");
-						price = scan.nextInt();
-						PurchaseInfo purchaseInfo = new PurchaseInfo(date, item, price);
-						accountBook.create(purchaseInfo);
+						calculator.selectArithmeticOperationMenu();
 						break;
-					case 2:												
-						System.out.println("¼öÁ¤ÇÒ ±¸¸Å ³»¿ªÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
-						purchaseNumberToUpdate = scan.nextInt();
-						System.out.print("±¸¸Å ³¯Â¥(ex. 2017 11 22): ");
-						date = scan.nextLine();
-						System.out.print("±¸¸Å Á¦Ç°: ");
-						item = scan.nextLine();
-						System.out.print("°¡°İ: ");
-						price = scan.nextInt();
-						PurchaseInfo newPurchaseInfo = new PurchaseInfo(purchaseNumberToUpdate, date, item, price);
-						accountBook.update(purchaseNumberToUpdate, newPurchaseInfo);						
+					case 2:
+						calculator.selectConvertorMenu();
 						break;
 					case 3:
-						System.out.println("»èÁ¦ÇÒ ±¸¸Å ³»¿ªÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+						menu=0;
+						break;
+					}
+				} while (calculatorMenu != 3);
+				break;
+
+			case 3: // åª›ï¿½æ€¨ê¾¨ï¿½
+				AccountBook accountBook = new AccountBook();
+				String date = new String();
+				int price;
+				String content = new String();
+				int accountBookMenu;
+				int purchaseNumberToUpdate, purchaseNumberToDelete;
+
+				do {
+					accountBookMenu = accountBook.selectAccountBookMenu();
+					switch (accountBookMenu) {
+					case 1:
+						System.out.print("ï¿½ê¶‡ï§ï¿½:");
+						date = scan.next();
+						System.out.print("ï¿½ê¶¡ï¿½ìŠœ:");
+						content = scan.next();
+						System.out.print("åª›ï¿½å¯ƒï¿½:");
+						price = scan.nextInt();
+						PurchaseInfo purchaseInfo = new PurchaseInfo(date, content, price);
+						accountBook.create(purchaseInfo);
+						break;
+					case 2:
+						System.out.println("ï¿½ë‹”ï¿½ì ™ï¿½ë¸· æ´Ñ‰â„“ ï¿½ê¶¡ï¿½ë¿­ï¿½ì“£ ï¿½ì—¯ï¿½ì °ï¿½ë¸¯ï¿½ê½­ï¿½ìŠ‚.");
+						System.out.print("æ´Ñ‰â„“ ï¿½ê¶¡ï¿½ë¿­ è¸°ëŠìƒ‡: ");
+						purchaseNumberToUpdate = scan.nextInt();
+						System.out.print("ï¿½ê¶‡ï§ï¿½:");
+						date = scan.next();
+						System.out.print("ï¿½ê¶¡ï¿½ìŠœ:");
+						content = scan.next();
+						System.out.print("åª›ï¿½å¯ƒï¿½:");
+						price = scan.nextInt();
+						purchaseInfo = new PurchaseInfo(date, content, price);
+						accountBook.update(purchaseNumberToUpdate, purchaseInfo);
+						break;
+					case 3:
+						System.out.println("ï¿½ê¶˜ï¿½ì £ï¿½ë¸· æ´Ñ‰â„“ ï¿½ê¶¡ï¿½ë¿­ï¿½ì“½ è¸°ëŠìƒ‡ç‘œï¿½ ï¿½ì—¯ï¿½ì °ï¿½ë¸¯ï¿½ê½­ï¿½ìŠ‚.");
 						purchaseNumberToDelete = scan.nextInt();
-						accountBook.delete(purchaseNumberToDelete);						
+						accountBook.delete(purchaseNumberToDelete);
 						break;
 					case 4:
-						accountBook.printAccountList();
+						accountBook.printAccountLists();
 						break;
-					}					
-				} while(accountBookMenu != 5);
+					}
+				} while (accountBookMenu != 5);
 				break;
-			}			
-		} while (menu != 4);				
+			}
+		} while (menu != 4);
 	}
 }
