@@ -91,15 +91,15 @@ public class Calculator {
 		System.out.println("2. Pound to Kg");
 		System.out.print("> ");
 
-		int calc_D_weight_menu = scan.nextInt();
+		int weight_menu = scan.nextInt();
 
 		System.out.print("Input number : ");
 		double weight = scan.nextDouble();
 
-		if (calc_D_weight_menu == 1)
+		if (weight_menu == 1)
 			System.out.println(calc.convertKgToPound(weight));
 
-		else if (calc_D_weight_menu == 2)
+		else if (weight_menu == 2)
 			System.out.println(calc.convertPoundToKg(weight));
 
 	}
@@ -109,15 +109,15 @@ public class Calculator {
 		System.out.println("2. cm to Inch");
 		System.out.print("> ");
 
-		int calc_D_length_menu = scan.nextInt();
+		int length_menu = scan.nextInt();
 
 		System.out.print("Input number : ");
 		double length = scan.nextDouble();
 
-		if (calc_D_length_menu == 1)
+		if (length_menu == 1)
 			System.out.println(calc.convertInchToCm(length));
 
-		else if (calc_D_length_menu == 2)
+		else if (length_menu == 2)
 			System.out.println(calc.convertInchToCm(length));
 	}
 
@@ -126,15 +126,15 @@ public class Calculator {
 		System.out.println("2. Celsius To Fahrenheit");
 		System.out.print("> ");
 
-		int calc_D_temp_menu = scan.nextInt();
+		int temparature_menu = scan.nextInt();
 
 		System.out.print("Input number : ");
 		double temp = scan.nextDouble();
 
-		if (calc_D_temp_menu == 1)
+		if (temparature_menu == 1)
 			System.out.println(calc.convertInchToCm(temp));
 
-		else if (calc_D_temp_menu == 2)
+		else if (temparature_menu == 2)
 			System.out.println(calc.convertInchToCm(temp));
 
 	}
