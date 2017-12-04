@@ -27,7 +27,7 @@ public class MainProgram {
 			menu = main.selectMenu();
 
 			switch (menu) {
-			case 1: // Memo Manager
+			case 1:
 				
 				MemoManager memoManager = new MemoManager();
 				int memoMenu;
@@ -79,7 +79,7 @@ public class MainProgram {
 				} while (calculatorMenu != 3);
 				break;
 
-			case 3: // 媛�怨꾨�
+			case 3: 
 				AccountBook accountBook = new AccountBook();
 				String date = new String();
 				int price;
@@ -91,30 +91,30 @@ public class MainProgram {
 					accountBookMenu = accountBook.selectAccountBookMenu();
 					switch (accountBookMenu) {
 					case 1:
-						System.out.print("�궇吏�:");
+						System.out.print("date:");
 						date = scan.next();
-						System.out.print("�궡�슜:");
+						System.out.print("content:");
 						content = scan.next();
-						System.out.print("媛�寃�:");
+						System.out.print("price:");
 						price = scan.nextInt();
 						PurchaseInfo purchaseInfo = new PurchaseInfo(date, content, price);
 						accountBook.create(purchaseInfo);
 						break;
 					case 2:
-						System.out.println("�닔�젙�븷 援щℓ �궡�뿭�쓣 �엯�젰�븯�꽭�슂.");
-						System.out.print("援щℓ �궡�뿭 踰덊샇: ");
+						System.out.println("Write a new purchase list to update");
+						System.out.print("Enter the number of the purchase list to update: ");
 						purchaseNumberToUpdate = scan.nextInt();
-						System.out.print("�궇吏�:");
+						System.out.print("date:");
 						date = scan.next();
-						System.out.print("�궡�슜:");
+						System.out.print("content:");
 						content = scan.next();
-						System.out.print("媛�寃�:");
+						System.out.print("price:");
 						price = scan.nextInt();
 						purchaseInfo = new PurchaseInfo(date, content, price);
 						accountBook.update(purchaseNumberToUpdate, purchaseInfo);
 						break;
 					case 3:
-						System.out.println("�궘�젣�븷 援щℓ �궡�뿭�쓽 踰덊샇瑜� �엯�젰�븯�꽭�슂.");
+						System.out.println("Enter the number of the purchase list to delete:");
 						purchaseNumberToDelete = scan.nextInt();
 						accountBook.delete(purchaseNumberToDelete);
 						break;

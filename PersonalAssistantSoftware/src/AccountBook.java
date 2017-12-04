@@ -8,12 +8,12 @@ public class AccountBook {
 	static ArrayList<PurchaseInfo> purchaseInfos = new ArrayList<>();
 
 	public int selectAccountBookMenu() {
-		System.out.println("1.내역 생성 ");
-		System.out.println("2. 수정");
-		System.out.println("3. 삭제 ");
-		System.out.println("4. 전체 출력 ");
-		System.out.println("5. 메인메뉴로 돌아가기 ");
-		System.out.print("실행하실 메뉴를 선택하세요:");
+		System.out.println("1. Create Purchase List ");
+		System.out.println("2. Update Purchase List");
+		System.out.println("3. Delete Purchase List ");
+		System.out.println("4. Print All Purchase List ");
+		System.out.println("5. Go Back To Main ");
+		System.out.print(">");
 		menu = scan.nextInt();
 		return menu;
 	}
@@ -39,7 +39,7 @@ public class AccountBook {
 
 	public void printAccountLists() {
 		for(int i=0;i<purchaseInfos.size();i++){
-			System.out.println("번호:"+i);
+			System.out.println("No.:"+i);
 			purchaseInfos.get(i).printList();
 		}
 	}
