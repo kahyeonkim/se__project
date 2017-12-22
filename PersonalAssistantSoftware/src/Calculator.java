@@ -141,7 +141,6 @@ public class Calculator {
 
 	double convertKgToPound(double weight) {
 		return weight * 2.204623;
-
 	}
 
 	double convertPoundToKg(double weight) {

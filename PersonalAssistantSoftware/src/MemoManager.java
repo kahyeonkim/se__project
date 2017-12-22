@@ -73,7 +73,7 @@ public class MemoManager {
 		catch (Exception e) {}
 	}
 	
-	public void delete(int memoNumber) {
+	public void delete(int memoNumber) {		
 		String memo = memoList.get(memoNumber);
 		
 		memoList.remove(memo);
