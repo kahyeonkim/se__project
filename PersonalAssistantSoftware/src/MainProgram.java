@@ -17,7 +17,7 @@ public class MainProgram {
 		return menu;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		MainProgram main = new MainProgram();
 		Scanner scan = new Scanner(System.in);
