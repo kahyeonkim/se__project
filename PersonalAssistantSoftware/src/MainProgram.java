@@ -72,9 +72,6 @@ public class MainProgram {
 					case 2:
 						calculator.selectConvertorMenu();
 						break;
-					case 3:
-						menu=0;
-						break;
 					}
 				} while (calculatorMenu != 3);
 				break;
