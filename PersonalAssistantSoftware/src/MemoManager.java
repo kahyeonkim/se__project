@@ -28,13 +28,13 @@ public class MemoManager {
 	public void create(String memo) {
 		memoList.add(memo);
 		memoCount++;
-		printMemo(memoCount, "����");
+		printMemo(memoCount, "create");
 	}
 	
 	public void update(int memoNumber, String newMemo) {
 		memoList.remove(memoNumber);
 		memoList.add(memoNumber, newMemo);
-		printMemo(memoNumber, "����");
+		printMemo(memoNumber, "update");
 	}
 	
 	public void delete(int memoNumber) {
@@ -42,12 +42,11 @@ public class MemoManager {
 		
 		memoList.remove(memo);
 		memoCount--;
-		printMemo(memoCount, "����");
-
-	}
+		printMemo(memoCount, "delete");
+		}
 	
 	private void printMemo(int memoNumber, String function) {
-		String contents = memoNumber + "��° �޸� " + function + "�Ǿ����ϴ�."; 
+		String contents = "Memo Number " + memoNumber + ": " + "The memo has been " + function +"d."; 
 		System.out.println(contents);
 		System.out.println();
 	}
@@ -55,12 +54,8 @@ public class MemoManager {
 	public void printMemoList() {
 		for(int i = 1; i < memoList.size(); i++) {
 			String memo = memoList.get(i);
-			System.out.println(i + "��° �޸�: " + memo);
-		}
-		System.out.println();
+			System.out.println("Memo Number " + i + ": " + memo);
 	}
-	
-	public void goBackToMain() {
-	//	MainProgram.printInitialScreen();
+		System.out.println();
 	}
 }
