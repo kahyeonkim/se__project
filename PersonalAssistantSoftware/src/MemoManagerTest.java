@@ -39,7 +39,7 @@ public class MemoManagerTest {
 		lastMemoIndex = memoManager.memoList.lastIndexOf(lastMemo);
 		memoManager.delete(lastMemoIndex);
 	}
-
+    
 	@Test
 	public void testDelete() throws Exception {
 		MemoManager memoManager = new MemoManager();	

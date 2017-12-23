@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.*;
+import java.util.*; 
 
 public class MainProgram {
    Scanner scan = new Scanner(System.in);
