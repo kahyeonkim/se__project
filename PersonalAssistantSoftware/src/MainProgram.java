@@ -2,6 +2,31 @@ import java.util.*;
 
 public class MainProgram {
    Scanner scan = new Scanner(System.in);
+   
+   public static final int MEMO_MANAGER = 1;
+   public static final int CALCULATOR = 2;
+   public static final int ACCOUNT_BOOK = 3;
+   public static final int QUIT = 4;	
+   
+   public static void main(String[] args) throws Exception {
+	   MainProgram main = new MainProgram();
+	   int menu;
+	   do {
+		   menu = main.selectMenu();
+
+	       switch (menu) {
+	       case MEMO_MANAGER:
+	    	   main.executeMemoManager();
+	           break;         
+	       case CALCULATOR:
+	           main.executeCalculator();
+	           break;
+	       case ACCOUNT_BOOK:
+	           main.executeAccountBook();
+	           break;
+	       }
+	   } while (menu != QUIT);   
+   }
 
    public int selectMenu() {
       System.out.println("1. Memo Manager");
@@ -62,8 +87,7 @@ public class MainProgram {
             calculator.selectConvertorMenu();
             break;
          }
-      } while (calculatorMenu != 3);
-      
+      } while (calculatorMenu != 3);      
    }
    
    public void executeAccountBook() throws Exception {
@@ -108,46 +132,6 @@ public class MainProgram {
             accountBook.printAccountLists();
             break;
          }
-      } while (accountBookMenu != 5);
-      
-   }
-   
-   public static void main(String[] args) throws Exception {
-      // TODO Auto-generated method stub
-      MainProgram main = new MainProgram();
-      int menu;
-
-      do {
-         menu = main.selectMenu();
-
-
-         switch (menu) {
-         case 1:
-            main.executeMemoManager();
-            break;         
-         case 2:
-
-            Calculator calculator = new Calculator();
-            int calculatorMenu;
-            do {
-               calculatorMenu = calculator.selectCalculatorMenu();
-               switch (calculatorMenu) {
-               case 1:
-                  calculator.selectArithmeticOperationMenu();
-                  break;
-               case 2:
-                  calculator.selectConvertorMenu();
-                  break;
-               }
-            } while (calculatorMenu != 3);
-
-            main.executeCalculator();
-
-            break;
-         case 3:
-            main.executeAccountBook();
-            break;
-         }
-      } while (menu != 4);   
+      } while (accountBookMenu != 5);      
    }
 }
