@@ -1,3 +1,5 @@
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,29 +20,45 @@ public class AccountBook {
 		return menu;
 	}
 
-	public void create(PurchaseInfo purchaseInfo) {
-		int purchaseNum=0;
+	public void create(PurchaseInfo purchaseInfo) throws IOException {
+		int purchaseNum = 0;
 		purchaseInfos.add(purchaseInfo);
+		
+		purchaseInfos.get(purchaseNum).writeAccount();
+		
 		printAccountList(purchaseNum, purchaseInfo);
 		purchaseNum++;
 	}
 
-	private void printAccountList(int purchaseNum,PurchaseInfo purchaseinfo) {
-		purchaseInfos.get(purchaseNum).printList();
+	/*
+	 * public void writeAccount(int purchaseNum) { try { File accountText = new
+	 * File("test.txt"); BufferedWriter bw = new BufferedWriter(new
+	 * FileWriter(accountText));
+	 * 
+	 * if (accountText.isFile() && accountText.canWrite()) { // 쓰기
+	 * bw.write(purchaseInfos.get(purchaseNum)); // 개행 문자쓰기 bw.newLine();
+	 * bw.write("문자열2"); bw.close(); }
+	 * 
+	 * } catch (IOException e) { System.out.println(e); } }
+	 */
+
+	private void printAccountList(int purchaseNum, PurchaseInfo purchaseinfo) throws IOException {
+		// purchaseInfos.get(purchaseNum).printList();
+		purchaseInfos.get(purchaseNum).readAccount();
 	}
 
-	public void update(int purchaseNum,PurchaseInfo purchaseinfo) {
-		purchaseInfos.set(purchaseNum,purchaseinfo);
+	public void update(int purchaseNum, PurchaseInfo purchaseinfo) {
+		purchaseInfos.set(purchaseNum, purchaseinfo);
 	}
-	
+
 	public void delete(int purchaseNum) {
 		purchaseInfos.remove(purchaseNum);
 	}
 
-	public void printAccountLists() {
-		for(int i=0;i<purchaseInfos.size();i++){
-			System.out.println("No.:"+i);
-			purchaseInfos.get(i).printList();
+	public void printAccountLists() throws IOException {
+		for (int i = 0; i < purchaseInfos.size(); i++) {
+			System.out.println("No.:" + i);
+			purchaseInfos.get(i).readAccount();
 		}
 	}
 }

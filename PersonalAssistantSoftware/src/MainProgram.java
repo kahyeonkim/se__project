@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.*;
 
 public class MainProgram {
@@ -17,7 +18,7 @@ public class MainProgram {
 		return menu;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		MainProgram main = new MainProgram();
 		Scanner scan = new Scanner(System.in);
