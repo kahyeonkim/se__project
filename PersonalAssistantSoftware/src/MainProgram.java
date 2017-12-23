@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.*;
 
 public class MainProgram {
@@ -71,7 +72,7 @@ public class MainProgram {
       
    }
    
-   public void executeAccountBook() {
+   public void executeAccountBook() throws Exception {
       AccountBook accountBook = new AccountBook();
       String date = new String();
       int price;
@@ -93,7 +94,6 @@ public class MainProgram {
             accountBook.create(purchaseInfo);
             break;
          case 2:
-            System.out.println("Write a new purchase list to update");
             System.out.print("Enter the number of the purchase list to update: ");
             purchaseNumberToUpdate = scan.nextInt();
             System.out.print("date:");
@@ -126,17 +126,34 @@ public class MainProgram {
       do {
          menu = main.selectMenu();
 
-         switch (menu) {
-         case 1:
-            main.executeMemoManager();
-            break;         
-         case 2:
-            main.executeCalculator();
-            break;
-         case 3:
-            main.executeAccountBook();
-            break;
-         }
-      } while (menu != 4);
+
+			switch (menu) {
+			case 1:
+				main.executeMemoManager();
+				break;			
+			case 2:
+
+				Calculator calculator = new Calculator();
+				int calculatorMenu;
+				do {
+					calculatorMenu = calculator.selectCalculatorMenu();
+					switch (calculatorMenu) {
+					case 1:
+						calculator.selectArithmeticOperationMenu();
+						break;
+					case 2:
+						calculator.selectConvertorMenu();
+						break;
+					}
+				} while (calculatorMenu != 3);
+
+				main.executeCalculator();
+
+				break;
+			case 3:
+				main.executeAccountBook();
+				break;
+			}
+		} while (menu != 4);	
    }
 }
