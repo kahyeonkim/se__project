@@ -7,15 +7,15 @@ public class AccountBook {
 
 	private static int menu;
 	static Scanner scan = new Scanner(System.in);
-	private ArrayList<PurchaseInfo> purchaseInfos = new ArrayList<>();
-	private String accountText = "accountText.txt";
+	protected ArrayList<PurchaseInfo> purchaseInfos = new ArrayList<>();
+	private String accountText = "accountText1.txt";
 	private int purchaseNum;
 
 	public AccountBook() throws Exception {
 		try {
 			ObjectInputStream accountData = new ObjectInputStream(new FileInputStream(accountText));
 			purchaseInfos = (ArrayList<PurchaseInfo>) accountData.readObject();
-			System.out.println("Memo has been recalled from the file. \n");
+			System.out.println("Purchase List has been recalled from the file. \n");
 
 		} catch (FileNotFoundException e) {
 			ObjectOutputStream accountData = new ObjectOutputStream(new FileOutputStream(accountText));
@@ -43,7 +43,6 @@ public class AccountBook {
 
 	public void writeToAccount() {
 		try {
-			// outputStream이 저장하는 거.
 			ObjectOutputStream accountData = new ObjectOutputStream(new FileOutputStream(accountText));
 			accountData.writeObject(purchaseInfos);
 			accountData.close();
