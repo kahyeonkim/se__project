@@ -65,7 +65,7 @@ public class MemoManager {
 		memoList.remove(memoNumber);
 		memoList.add(memoNumber, newMemo);
 		printMemo(memoNumber, "update");
-		
+
 		try {
 			ObjectOutputStream memoData = new ObjectOutputStream(new FileOutputStream(fileName));
 			memoData.writeObject(memoList);
@@ -81,7 +81,7 @@ public class MemoManager {
 		
 		memoList.remove(memo);
 		printMemo(memoNumber, "delete");
-		
+
 		try {
 			ObjectOutputStream memoData = new ObjectOutputStream(new FileOutputStream(fileName));
 			memoData.writeObject(memoList);
