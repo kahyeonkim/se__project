@@ -23,7 +23,6 @@ public class AccountBookTest {
 	@Test
 	public void testUpdateAccount() throws Exception {
 		AccountBook accountBookTest = new AccountBook();
-
 		PurchaseInfo purchaseInfoTest = new PurchaseInfo("20171211", "smoothie", 6000);
 		PurchaseInfo updateInfo = new PurchaseInfo("20200000", "pasta", 10000);
 
@@ -43,5 +42,6 @@ public class AccountBookTest {
 		assertEquals(expectedPrice, updatedInfo.getPrice());
 
 	}
+	
 
 }
