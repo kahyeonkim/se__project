@@ -126,13 +126,13 @@ public class MainProgram {
       do {
          menu = main.selectMenu();
 
-<<<<<<< HEAD
+
 			switch (menu) {
 			case 1:
 				main.executeMemoManager();
 				break;			
 			case 2:
-<<<<<<< HEAD
+
 				Calculator calculator = new Calculator();
 				int calculatorMenu;
 				do {
@@ -146,30 +146,14 @@ public class MainProgram {
 						break;
 					}
 				} while (calculatorMenu != 3);
-=======
+
 				main.executeCalculator();
->>>>>>> origin
+
 				break;
 			case 3:
 				main.executeAccountBook();
 				break;
 			}
-		} while (menu != 4);
-	}
+		} while (menu != 4);	
 }
-=======
-         switch (menu) {
-         case 1:
-            main.executeMemoManager();
-            break;         
-         case 2:
-            main.executeCalculator();
-            break;
-         case 3:
-            main.executeAccountBook();
-            break;
-         }
-      } while (menu != 4);
-   }
 }
->>>>>>> origin
