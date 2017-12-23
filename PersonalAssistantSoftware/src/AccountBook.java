@@ -1,21 +1,19 @@
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class AccountBook {
 
 	private static int menu;
 	static Scanner scan = new Scanner(System.in);
-	private ArrayList<PurchaseInfo> purchaseInfos = new ArrayList<>();
-	private String accountText = "accountText.txt";
-	private int purchaseNum;
+	protected ArrayList<PurchaseInfo> purchaseInfos = new ArrayList<>();
+	private String accountText = "accountText6.txt";
 
 	public AccountBook() throws Exception {
 		try {
 			ObjectInputStream accountData = new ObjectInputStream(new FileInputStream(accountText));
 			purchaseInfos = (ArrayList<PurchaseInfo>) accountData.readObject();
-			System.out.println("Memo has been recalled from the file. \n");
+			System.out.println("Account has been recalled from the file. \n");
 
 		} catch (FileNotFoundException e) {
 			ObjectOutputStream accountData = new ObjectOutputStream(new FileOutputStream(accountText));
@@ -35,6 +33,7 @@ public class AccountBook {
 	}
 
 	public void create(PurchaseInfo purchaseInfo) throws IOException {
+		int purchaseNum = purchaseInfos.size();
 		purchaseInfos.add(purchaseInfo);
 		printAccountList(purchaseNum, purchaseInfo);
 		purchaseNum++;
@@ -43,11 +42,11 @@ public class AccountBook {
 
 	public void writeToAccount() {
 		try {
-			// outputStream이 저장하는 거.
 			ObjectOutputStream accountData = new ObjectOutputStream(new FileOutputStream(accountText));
 			accountData.writeObject(purchaseInfos);
 			accountData.close();
-		} catch (Exception e) {
+		} catch (IOException e) {
+			System.out.println(e);
 		}
 	}
 
@@ -76,12 +75,9 @@ public class AccountBook {
 
 	public void printAccountLists() throws IOException {
 		for (int i = 0; i < purchaseInfos.size(); i++) {
-			System.out.println("number" + (i + 1) + " account :\n");
+			System.out.println("number" + (i + 1) + " account :");
 			purchaseInfos.get(i).printList();
 		}
 	}
 
-	public int getPurchaseNum() {
-		return purchaseNum;
-	}
 }

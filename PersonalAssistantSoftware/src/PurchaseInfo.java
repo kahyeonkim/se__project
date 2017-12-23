@@ -13,11 +13,22 @@ public class PurchaseInfo implements Serializable {
 	private int price;
 	private String content;
 
+	
 	public void printList() {
 
-		System.out.println("date:" + date);
+		System.out.println("\ndate:" + date);
 		System.out.println("content:" + content);
 		System.out.println("price:" + price);
 		System.out.println("");
 	}
+	public String getDate(){
+		return date;
+	}
+	public String getContent(){
+		return content;
+	}
+	public int getPrice(){
+		return price;
+	}
+	
 }

@@ -2,13 +2,13 @@ import java.util.*;
 import java.io.*;
 
 public class MemoManager {
-	ArrayList<String> memoList = new ArrayList<String>();
+	Vector<String> memoList = new Vector<String>();
 	String fileName = "my_memo.txt";
 
 	public MemoManager() throws Exception {		
 		try {
 			ObjectInputStream memoData = new ObjectInputStream(new FileInputStream(fileName));
-			memoList = (ArrayList<String>) memoData.readObject();
+			memoList = (Vector<String>) memoData.readObject();
 			System.out.println("Memo has been recalled from the file. \n");
 			
 			if(memoData != null) {
@@ -45,12 +45,11 @@ public class MemoManager {
 		return memoMenu; 	
 	}
 	
-	public ArrayList<String> create(String memo) {
+	public Vector<String> create(String memo) {
 		int memoNumberCount; 
 		memoList.add(memo);
 		memoNumberCount = memoList.size() - 1;
 		printMemo(memoNumberCount, "create");
-		System.out.println(memoList);
 
 		try {
 			ObjectOutputStream memoData = new ObjectOutputStream(new FileOutputStream(fileName));
@@ -62,7 +61,7 @@ public class MemoManager {
 		return memoList;
 	}
 	
-	public ArrayList<String> update(int memoNumber, String newMemo) {
+	public Vector<String> update(int memoNumber, String newMemo) {
 		memoList.remove(memoNumber);
 		memoList.add(memoNumber, newMemo);
 		printMemo(memoNumber, "update");
