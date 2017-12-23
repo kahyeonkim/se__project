@@ -7,7 +7,21 @@ public class AccountBook {
 
 	private static int menu;
 	static Scanner scan = new Scanner(System.in);
-	static ArrayList<PurchaseInfo> purchaseInfos = new ArrayList<>();
+	private ArrayList<PurchaseInfo> purchaseInfos = new ArrayList<>();
+	private String accountText = "accountText.txt";
+	private int purchaseNum;
+
+	public AccountBook() throws Exception {
+		try {
+			ObjectInputStream accountData = new ObjectInputStream(new FileInputStream(accountText));
+			purchaseInfos = (ArrayList<PurchaseInfo>) accountData.readObject();
+			System.out.println("Memo has been recalled from the file. \n");
+
+		} catch (FileNotFoundException e) {
+			ObjectOutputStream accountData = new ObjectOutputStream(new FileOutputStream(accountText));
+			// e.printStackTrace();
+		}
+	}
 
 	public int selectAccountBookMenu() {
 		System.out.println("1. Create Purchase List ");
@@ -21,44 +35,53 @@ public class AccountBook {
 	}
 
 	public void create(PurchaseInfo purchaseInfo) throws IOException {
-		int purchaseNum = 0;
 		purchaseInfos.add(purchaseInfo);
-		
-		purchaseInfos.get(purchaseNum).writeAccount();
-		
 		printAccountList(purchaseNum, purchaseInfo);
 		purchaseNum++;
+		writeToAccount();
 	}
 
-	/*
-	 * public void writeAccount(int purchaseNum) { try { File accountText = new
-	 * File("test.txt"); BufferedWriter bw = new BufferedWriter(new
-	 * FileWriter(accountText));
-	 * 
-	 * if (accountText.isFile() && accountText.canWrite()) { // 쓰기
-	 * bw.write(purchaseInfos.get(purchaseNum)); // 개행 문자쓰기 bw.newLine();
-	 * bw.write("문자열2"); bw.close(); }
-	 * 
-	 * } catch (IOException e) { System.out.println(e); } }
-	 */
+	public void writeToAccount() {
+		try {
+			// outputStream이 저장하는 거.
+			ObjectOutputStream accountData = new ObjectOutputStream(new FileOutputStream(accountText));
+			accountData.writeObject(purchaseInfos);
+			accountData.close();
+		} catch (Exception e) {
+		}
+	}
 
 	private void printAccountList(int purchaseNum, PurchaseInfo purchaseinfo) throws IOException {
-		// purchaseInfos.get(purchaseNum).printList();
-		purchaseInfos.get(purchaseNum).readAccount();
+		purchaseInfos.get(purchaseNum).printList();
 	}
 
 	public void update(int purchaseNum, PurchaseInfo purchaseinfo) {
-		purchaseInfos.set(purchaseNum, purchaseinfo);
+		try {
+			purchaseInfos.set(purchaseNum - 1, purchaseinfo);
+			writeToAccount();
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println(e);
+		}
 	}
 
 	public void delete(int purchaseNum) {
-		purchaseInfos.remove(purchaseNum);
+		try {
+			purchaseInfos.remove(purchaseNum - 1);
+			writeToAccount();
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("not exist");
+			System.out.println(e);
+		}
 	}
 
 	public void printAccountLists() throws IOException {
 		for (int i = 0; i < purchaseInfos.size(); i++) {
-			System.out.println("No.:" + i);
-			purchaseInfos.get(i).readAccount();
+			System.out.println("number" + (i + 1) + " account :\n");
+			purchaseInfos.get(i).printList();
 		}
+	}
+
+	public int getPurchaseNum() {
+		return purchaseNum;
 	}
 }
