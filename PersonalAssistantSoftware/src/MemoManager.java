@@ -45,7 +45,7 @@ public class MemoManager {
 		return memoMenu; 	
 	}
 	
-	public void create(String memo) {
+	public ArrayList<String> create(String memo) {
 		int memoNumberCount; 
 		memoList.add(memo);
 		memoNumberCount = memoList.size() - 1;
@@ -58,9 +58,11 @@ public class MemoManager {
 			memoData.close();
 		}
 		catch (Exception e) {}
+		
+		return memoList;
 	}
 	
-	public void update(int memoNumber, String newMemo) {
+	public ArrayList<String> update(int memoNumber, String newMemo) {
 		memoList.remove(memoNumber);
 		memoList.add(memoNumber, newMemo);
 		printMemo(memoNumber, "update");
@@ -71,6 +73,8 @@ public class MemoManager {
 			memoData.close();
 		}
 		catch (Exception e) {}
+	
+		return memoList;
 	}
 	
 	public void delete(int memoNumber) {		
